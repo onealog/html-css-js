@@ -30,7 +30,7 @@ const updateProgress = () => {
 nextButton.addEventListener('click', () => {
   activeIndex++;
 
-  if (activeIndex > 4) {
+  if (activeIndex > circles.length) {
     activeIndex = circles.length;
   }
 
