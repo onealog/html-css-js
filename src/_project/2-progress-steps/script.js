@@ -16,7 +16,7 @@ const updateProgress = () => {
     }
   });
 
-  if (activeIndex === 4) {
+  if (activeIndex === circles.length) {
     nextButton.disabled = true;
   } else if (activeIndex === 1) {
     prevButton.disabled = true;
