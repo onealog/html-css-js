@@ -1,45 +1,48 @@
-const nextButton = document.querySelector('#next');
-const prevButton = document.querySelector('#prev');
+const nextButton = document.getElementById('next');
+const prevButton = document.getElementById('prev');
+const progress = document.getElementById('progress');
 const circles = document.querySelectorAll('.circle');
-const progress = document.querySelector('#progress');
 
-let count = 0;
-let width = 0;
+let activeIndex = 1;
 
-nextButton.addEventListener('click', () => {
-  count++;
-  width += 30;
+const updateProgress = () => {
+  progress.style.width = `${(activeIndex - 1) / (circles.length - 1) * 100}%`;
 
-  if (count > 0) {
+  circles.forEach((circle, index) => {
+    if (index < activeIndex) {
+      circle.classList.add('active');
+    } else {
+      circle.classList.remove('active');
+    }
+  });
+
+  if (activeIndex === 4) {
+    nextButton.disabled = true;
+  } else if (activeIndex === 1) {
+    prevButton.disabled = true;
+  } else {
+    nextButton.disabled = false;
     prevButton.disabled = false;
   }
 
-  progress.style.width = `${width}%`;
-  circles[count].classList.add('active');
+};
 
-  if (count === 3) {
-    nextButton.disabled = true;
-    return;
+nextButton.addEventListener('click', () => {
+  activeIndex++;
+
+  if (activeIndex > 4) {
+    activeIndex = circles.length;
   }
+
+  updateProgress();
 });
 
 prevButton.addEventListener('click', () => {
-  if (count === 0) {
-    return;
+  activeIndex--;
+
+  if (activeIndex < 1) {
+    activeIndex = 1;
   }
 
-  if (count === 1) {
-    prevButton.disabled = true;
-    nextButton.disabled = false;
-  }
-
-  if (count > 1) {
-    nextButton.disabled = false;
-  }
-
-  count--;
-  width -= 30;
-
-  progress.style.width = `${width}%`;
-  circles[count + 1].classList.remove('active');
+  updateProgress();
 });
