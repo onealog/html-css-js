@@ -6,8 +6,6 @@ const progress = document.querySelector('#progress');
 let count = 0;
 let width = 0;
 
-console.log(circles)
-
 nextButton.addEventListener('click', () => {
   count++;
   width += 30;
