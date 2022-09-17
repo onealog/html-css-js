@@ -22,7 +22,11 @@ body {
 }
 
 .container.show-nav {
-  transform: rotate(-20deg );
+  transform: rotate(-20deg);
+}
+
+.container.show-nav .circle {
+  transform: rotate(-90deg);
 }
 
 .circle-container {
