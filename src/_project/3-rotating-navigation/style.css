@@ -15,7 +15,7 @@ body {
 .container {
   background-color: #fafafa;
   transform-origin: top left;
-  transition: transform 0.5s linear;
+  transition: transform 0.2s linear;
   width: 100vw;
   min-height: 100vh;
   padding: 50px;
@@ -62,10 +62,14 @@ body {
 }
 
 .circle button#close {
-  top: 62%;
-  left: 54%;
+  top: 55%;
+  left: 50%;
   transform: rotate(90deg);
   transform-origin: top left;
+}
+
+.circle button#close i {
+  transform: rotate(20deg);
 }
 
 .container.show-nav + nav li {
@@ -89,7 +93,7 @@ nav ul li {
   color: white;
   text-transform: uppercase;
   margin: 40px 0;
-  transition: transform 0.4s ease-in;
+  transition: transform 0.2s ease-in;
   transform: translateX(-100%);
 }
 
