@@ -37,13 +37,13 @@ body {
   height: 200px;
   border-radius: 50%;
   position: relative;
-  transition: transform 0.5s linear;
+  transition: transform 0.2s linear;
 }
 
 .circle button {
   position: absolute;
-  top: 41%;
-  left: 56%;
+  top: 50%;
+  left: 50%;
   height: 100px;
   background: none;
   border: none;
@@ -58,10 +58,12 @@ body {
 
 .circle button#open {
   left: 60%;
+  top: 45%;
 }
 
 .circle button#close {
-  top: 60%;
+  top: 62%;
+  left: 54%;
   transform: rotate(90deg);
   transform-origin: top left;
 }
